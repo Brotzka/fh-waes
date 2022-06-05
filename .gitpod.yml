@@ -1,6 +1,8 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
   - init: |
+      cp .env.example .env |
+      composer install |
       ./vendor/bin/sail build |
     command: |
       ./vendor/bin/sail up

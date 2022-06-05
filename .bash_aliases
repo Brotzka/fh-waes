@@ -1,0 +1,1 @@
+alias sail='[ -f sail ] && bash sail || bash /workspace/fh-waes/vendor/bin/sail'
