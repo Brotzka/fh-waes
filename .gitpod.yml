@@ -1,12 +1,17 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - init: |
+  - name: backend
+    init: |
+      cd /workspace/fh-waes/backend
       cp .env.example .env |
       composer install |
-      php artisan key:generate |
-      ./vendor/bin/sail build |
+      php artisan key:generate 
     command: |
-      ./vendor/bin/sail up
+      ./vendor/bin/sail up -d
+      php artisan serve
+  - name: frontend
+    init: |
+      echo "Starte frontend"
 
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
