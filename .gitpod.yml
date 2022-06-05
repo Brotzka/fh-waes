@@ -3,11 +3,11 @@ tasks:
     init: |
       cd /workspace/fh-waes/backend
       cp .env.example .env |
-      composer install |
-      php artisan key:generate 
+      composer install
     command: |
       cd /workspace/fh-waes/backend
       ./vendor/bin/sail up -d
+      php artisan key:generate 
       php artisan serve
 
   - name: frontend
@@ -26,6 +26,8 @@ ports:
   - port: 8080
     onOpen: ignore
   - port: 80
+    onOpen: ignore
+  - port: 3006
     onOpen: ignore
   - port: 3000
     onOpen: open-browser
