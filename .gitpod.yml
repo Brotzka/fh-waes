@@ -1,4 +1,3 @@
-# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
   - name: backend
     init: |
@@ -9,9 +8,13 @@ tasks:
     command: |
       ./vendor/bin/sail up -d
       php artisan serve
+
   - name: frontend
     init: |
-      echo "Starte frontend"
+      cd /workspace/fh-waes/frontend
+      npm i
+    command: |
+      npm run dev
 
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
@@ -21,6 +24,10 @@ ports:
   - port: 8080
     onOpen: ignore
   - port: 80
+    onOpen: ignore
+  - port: 3000
+    onOpen: open-browser
+  - port: 8000
     onOpen: open-browser
 
 vscode:
