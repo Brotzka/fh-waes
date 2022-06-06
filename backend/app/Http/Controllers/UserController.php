@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\LoginRequest;
+use App\Http\Requests\User\LogoutRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\RegisterRequest;
 use App\Models\User;
@@ -69,5 +70,22 @@ class UserController extends Controller
 
             ], Response::HTTP_UNAUTHORIZED);
         }
+    }
+
+    /**
+     * Logs a user out from the application
+     *
+     * @param LogoutRequest $request
+     * @return JsonResponse
+     */
+    public function logout(LogoutRequest $request): JsonResponse
+    {
+        // Remove all tokens
+        $request->user()->tokens()->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => "You're logged out"
+        ], Response::HTTP_OK);
     }
 }
