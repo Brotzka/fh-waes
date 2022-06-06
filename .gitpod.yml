@@ -38,3 +38,6 @@ vscode:
   extensions:
     - ms-azuretools.vscode-docker
     - mohamedbenhida.laravel-intellisense
+    - felixfbecker.php-debug
+    - neilbrayfield.php-docblocker
+    - bmewburn.vscode-intelephense-client
