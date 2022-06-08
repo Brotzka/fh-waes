@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import Axios from 'axios'
+import http from '@/http'
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
@@ -10,10 +10,7 @@ import './assets/scss/app.scss'
 import router from './router'
 import store from './store'
 
-const axios = Axios.create({
-  baseURL: process.env.VUE_APP_API_BASE_URL + "api/"
-})
-Vue.prototype.$http = axios
+Vue.prototype.$http = http
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
@@ -22,11 +19,8 @@ Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
 
-const app = new Vue({
+new Vue({
   router,
   store,
   render: h => h(App)
-})
-
-store.$app = app
-app.$mount('#app')
+}).$mount('#app')

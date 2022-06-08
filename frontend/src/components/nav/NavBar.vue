@@ -41,7 +41,16 @@
 <script>
 
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+
+  computed: {
+    user() {
+      return this.$store.getters.user
+    },
+    apiToken() {
+      return this.$store.getters.apiToken
+    }
+  }
 }
 
 </script>

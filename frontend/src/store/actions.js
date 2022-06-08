@@ -1,18 +1,18 @@
+import {backendApi} from "@/http"
+
 const userRegister = (context, user) => {
-    console.log(context, user)
-    console.log(this.$app)
-    /*
-    this._vm.$http.post('users/register', this.user)
-        .then(resp => {
-            console.log(resp)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-        */
+
+  backendApi
+    .post("users/register", user)
+    .then((resp) => {
+        context.commit('user', resp.data.user)
+        context.commit('api_token', resp.data.api_token)
+    })
+    .catch((err) => {
+      console.warn(err);
+    })
 }
 
-
 export default {
-    userRegister
+  userRegister
 }
