@@ -15,6 +15,7 @@ tasks:
       cd /workspace/fh-waes/frontend
       npm i
     command: |
+      npm install -g @vue/cli
       cd /workspace/fh-waes/frontend
       npm run serve
 

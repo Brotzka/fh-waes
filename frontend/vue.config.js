@@ -3,7 +3,10 @@ module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
     allowedHosts: 'all',
-    https: true,
-    port: 3000
+    client: {
+      webSocketURL: {
+        port: process.env.GITPOD_WORKSPACE_ID ? 443 : undefined,
+      },
+    },
   }
 })
