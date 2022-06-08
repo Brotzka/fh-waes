@@ -2,12 +2,13 @@ tasks:
   - name: backend
     init: |
       cd /workspace/fh-waes/backend
-      cp .env.example .env |
+      cp .env.example .env
       composer install
+      php artisan key:generate
     command: |
       cd /workspace/fh-waes/backend
       ./vendor/bin/sail up -d
-      php artisan key:generate 
+      php artisan migrate
       php artisan serve
 
   - name: frontend
@@ -42,3 +43,4 @@ vscode:
     - bmewburn.vscode-intelephense-client
     - mubaidr.vuejs-extension-pack
     - formulahendry.auto-close-tag
+    - irongeek.vscode-env
