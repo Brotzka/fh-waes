@@ -22,15 +22,13 @@ tasks:
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
-  - port: 8081
+  - port: 8081 # PhpMyAdmin
     onOpen: open-browser
-  - port: 8080
-    onOpen: ignore
   - port: 80
     onOpen: ignore
   - port: 3006
     onOpen: ignore
-  - port: 3000 # Frontend
+  - port: 8080 # Frontend
     onOpen: open-browser
   - port: 8000 # Backend
     onOpen: open-browser
@@ -43,3 +41,4 @@ vscode:
     - neilbrayfield.php-docblocker
     - bmewburn.vscode-intelephense-client
     - mubaidr.vuejs-extension-pack
+    - formulahendry.auto-close-tag
