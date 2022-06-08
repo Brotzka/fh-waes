@@ -6,33 +6,22 @@
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
+      <b-navbar-nav v-if="!loggedIn">
+        <b-nav-item to="login">Einloggen</b-nav-item>
         <b-nav-item to="register">Registrieren</b-nav-item>
       </b-navbar-nav>
 
-
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto" align="right">
-
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">ES</b-dropdown-item>
-          <b-dropdown-item href="#">RU</b-dropdown-item>
-          <b-dropdown-item href="#">FA</b-dropdown-item>
-        </b-nav-item-dropdown>
-
+      <b-navbar-nav v-else>
         <b-nav-item-dropdown right>
           <!-- Using 'button-content' slot -->
           <template #button-content>
-            User
+            {{ user.name }}
           </template>
           
-          <b-dropdown-item to="login">Login</b-dropdown-item>
+          <b-dropdown-item href="#" @click="logout">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
-
-        
-
       </b-navbar-nav>
+
     </b-collapse>
   </b-navbar>
 </div>
@@ -40,16 +29,25 @@
 
 <script>
 
+import {mapGetters, mapState} from 'vuex'
+
 export default {
   name: 'NavBar',
 
-  computed: {
-    user() {
-      return this.$store.getters.user
-    },
-    apiToken() {
-      return this.$store.getters.apiToken
+  methods: {
+    logout() {
+      this.$store.dispatch('logout')
     }
+  },
+
+  computed: {
+    ...mapGetters({
+      loggedIn: 'userLoggedIn',
+      user: 'user'
+    }),
+    ...mapState({
+      userDetails: 'user'
+    })
   }
 }
 

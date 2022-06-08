@@ -2,7 +2,7 @@ import {backendApi} from "@/http"
 
 const userRegister = (context, user) => {
 
-  backendApi
+  backendApi()
     .post("users/register", user)
     .then((resp) => {
         context.commit('user', resp.data.user)
@@ -13,6 +13,18 @@ const userRegister = (context, user) => {
     })
 }
 
+const logout = (context) => {
+  backendApi().post("users/logout")
+  .then(() => {
+    context.commit('unsetUser')
+    context.commit('unsetApiToken')
+  })
+  .catch(err => {
+    console.warn(err)
+  })
+}
+
 export default {
-  userRegister
+  userRegister,
+  logout
 }
