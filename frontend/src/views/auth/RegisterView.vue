@@ -69,14 +69,7 @@ export default {
   },
   methods: {
     registerUser() {
-      console.log(this.user)
-      this.$http.post('users/register', this.user)
-      .then(resp => {
-        console.log(resp)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+      this.$store.dispatch('userRegister', this.user)
     }
   }
 }
