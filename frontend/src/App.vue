@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <b-row>
+      <b-col>
+        <p>Test</p>
+      </b-col>
+    </b-row>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App build with Gitpod"/>
   </div>

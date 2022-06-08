@@ -42,3 +42,4 @@ vscode:
     - felixfbecker.php-debug
     - neilbrayfield.php-docblocker
     - bmewburn.vscode-intelephense-client
+    - octref.vetur
