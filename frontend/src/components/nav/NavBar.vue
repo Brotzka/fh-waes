@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-navbar toggleable="lg" type="light" variant="primary">
-    <b-navbar-brand to="home">NavBar</b-navbar-brand>
+    <b-navbar-brand to="/">NavBar</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -18,6 +18,7 @@
             {{ user.name }}
           </template>
           
+          <b-dropdown-item to="dashboard">Dashboard</b-dropdown-item>
           <b-dropdown-item href="#" @click="logout">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
@@ -37,6 +38,8 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch('logout')
+
+      this.$router.push({name: 'home'})
     }
   },
 

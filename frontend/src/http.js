@@ -2,9 +2,11 @@ import axios from "axios"
 import store from "./store"
 
 export const backendApi = () => {
+  const baseUrl = process.env.VUE_APP_API_BASE_URL + "api/"
+
   const http = axios.create({
     //baseURL: process.env.VUE_APP_API_BASE_URL + "api/",
-    baseURL: "https://8000-brotzka-fhwaes-ciw7npuwzb9.ws-eu47.gitpod.io/api/",
+    baseURL: baseUrl,
     headers: {
       "Access-Control-Allow-Origin": "*"
     }

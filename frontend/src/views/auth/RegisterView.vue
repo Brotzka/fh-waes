@@ -68,8 +68,18 @@ export default {
     }
   },
   methods: {
-    registerUser() {
+    async registerUser() {
       this.$store.dispatch('userRegister', this.user)
+
+      // Empty all fields 
+      this.user = {
+        name: "",
+        email: "",
+        password: "",
+        password_confirmation: ""
+      }
+
+      this.$router.push({name: "dashboard"})
     }
   }
 }
