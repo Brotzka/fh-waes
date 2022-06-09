@@ -25,14 +25,17 @@ tasks:
 ports:
   - port: 8081 # PhpMyAdmin
     onOpen: open-browser
+    visibility: public
   - port: 80
     onOpen: ignore
   - port: 3006
     onOpen: ignore
   - port: 8080 # Frontend
     onOpen: open-browser
+    visibility: public
   - port: 8000 # Backend
     onOpen: open-browser
+    visibility: public
 
 vscode:
   extensions:
