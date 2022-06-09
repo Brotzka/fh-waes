@@ -13,6 +13,19 @@ const userRegister = (context, user) => {
     })
 }
 
+const userLogin = (context, user) => {
+  backendApi()
+  .post("users/login", user)
+  .then(resp => {
+    console.log("Response", resp)
+    context.commit('user', resp.data.user)
+        context.commit('api_token', resp.data.api_token)
+  })
+  .catch(err => {
+    console.warn(err)
+  })
+}
+
 const logout = (context) => {
   backendApi().post("users/logout")
   .then(() => {
@@ -26,5 +39,6 @@ const logout = (context) => {
 
 export default {
   userRegister,
+  userLogin,
   logout
 }

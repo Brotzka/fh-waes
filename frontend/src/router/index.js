@@ -17,12 +17,12 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    component: LoginView,
+    component: LoginView
   },
   {
     path: "/register",
     name: "register",
-    component: RegisterView,
+    component: RegisterView
   },
   {
     path: "/dashboard",
@@ -39,21 +39,11 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if(from.name == 'login' || from.name == 'register') {
-    // Muss so sein weil sonst der Store och nicht bereit ist
-    setTimeout(function () {
-      if (to.meta.requiresAuth && !store.getters.userLoggedIn) {
-        next({ name: "login" })
-      }
-      next()
-    }, 300)
-  } else {
-    if (to.meta.requiresAuth && !store.getters.userLoggedIn) {
-      next({ name: "login" })
-    }
-  
-    next()
-  }  
+  if (to.meta.requiresAuth && !store.getters.userLoggedIn) {
+    next({ name: "login" })
+  }
+
+  next()
 });
 
 export default router;
