@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,16 @@ Route::controller(UserController::class)->prefix('users')->name('users')->group(
     Route::middleware('auth:sanctum')->group(function() {
         Route::post('logout', 'logout');
     });
+});
+
+Route::controller(CourseController::class)
+    ->middleware('auth:sanctum')
+    ->prefix('courses')
+    ->name('courses')
+    ->group(function() {
+        Route::post('create', 'create');
+        Route::get('list', 'list');
+        Route::get('show/{courseId}', 'show');
+        Route::delete('delete/{courseId}', 'delete');
+        Route::patch('update/{courseId}', 'update');
 });

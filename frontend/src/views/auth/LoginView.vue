@@ -10,7 +10,6 @@
 
         <b-form @submit.prevent="loginUser">
 
-
           <b-form-group id="user-email" label="Deine Mailadresse" label-for="email">
             <b-form-input id="email" type="email" v-model="user.email" trim></b-form-input>
           </b-form-group>
