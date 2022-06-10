@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class course extends Model
+class Course extends Model
 {
     use HasFactory;
 
-    public function teacher(){
+    protected $guarded = ['id'];
+    protected $fillable = ['teacher_id','name', 'description', 'start_date', 'end_date'];
 
+    public function teacher()
+    {
         return $this->belongsTo(App\Models\User::class, 'teacher_id');
     }
 }
