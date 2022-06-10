@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Course\CourseCreateRequest;
+use App\Http\Requests\Course\CourseDeleteRequest;
 use App\Http\Requests\Course\CourseListRequest;
 use App\Http\Requests\Course\CourseShowRequest;
 use App\Models\Course;
@@ -59,6 +60,24 @@ class CourseController extends Controller
         return response()->json([
             "success" => true,
             "course" => $course
+        ]);
+    }
+
+    /**
+     * Delete a specific course
+     *
+     * @param CourseDeleteRequest $request
+     * @param [type] $courseId
+     * @return JsonResponse
+     */
+    public function delete(CourseDeleteRequest $request, $courseId): JsonResponse
+    {
+        $course = Course::findOrFail($courseId);
+        $course->delete();
+
+        return response()->json([
+            "success" => true,
+            "message" => "Course deleted."
         ]);
     }
 }

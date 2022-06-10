@@ -32,4 +32,5 @@ Route::controller(CourseController::class)
         Route::post('create', 'create');
         Route::get('list', 'list');
         Route::get('show/{courseId}', 'show');
+        Route::delete('delete/{courseId}', 'delete');
 });
