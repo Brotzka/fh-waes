@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function courses(){
+
+        return $this->belongsTo(App\Models\User::class, 'teacher_id');
+    }
 }
