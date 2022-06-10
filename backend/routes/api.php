@@ -31,4 +31,5 @@ Route::controller(CourseController::class)
     ->group(function() {
         Route::post('create', 'create');
         Route::get('list', 'list');
+        Route::get('show/{courseId}', 'show');
 });

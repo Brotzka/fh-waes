@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Course\CourseCreateRequest;
 use App\Http\Requests\Course\CourseListRequest;
+use App\Http\Requests\Course\CourseShowRequest;
 use App\Models\Course;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
@@ -42,6 +43,22 @@ class CourseController extends Controller
         return response()->json([
             "success" => true,
             "data" => $courses
+        ]);
+    }
+
+    /**
+     * Get a single Course
+     *
+     * @param CourseShowRequest $request
+     * @param [type] $courseId
+     * @return JsonResponse
+     */
+    public function show(CourseShowRequest $request, $courseId): JsonResponse
+    {
+        $course = Course::findOrFail($courseId);
+        return response()->json([
+            "success" => true,
+            "course" => $course
         ]);
     }
 }
