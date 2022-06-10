@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function courses()
     {
-        return $this->hasMany(App\Models\Course::class, 'teacher_id');
+        return $this->hasMany(Course::class, 'teacher_id');
     }
 }
