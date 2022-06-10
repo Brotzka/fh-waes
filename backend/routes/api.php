@@ -33,4 +33,5 @@ Route::controller(CourseController::class)
         Route::get('list', 'list');
         Route::get('show/{courseId}', 'show');
         Route::delete('delete/{courseId}', 'delete');
+        Route::patch('update/{courseId}', 'update');
 });

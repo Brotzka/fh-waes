@@ -6,6 +6,7 @@ use App\Http\Requests\Course\CourseCreateRequest;
 use App\Http\Requests\Course\CourseDeleteRequest;
 use App\Http\Requests\Course\CourseListRequest;
 use App\Http\Requests\Course\CourseShowRequest;
+use App\Http\Requests\Course\CourseUpdateRequest;
 use App\Models\Course;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
@@ -78,6 +79,20 @@ class CourseController extends Controller
         return response()->json([
             "success" => true,
             "message" => "Course deleted."
+        ]);
+    }
+
+    public function update(CourseUpdateRequest $request, $courseId): JsonResponse
+    {
+        Course::where('id', $courseId)
+            ->update($request->all());
+
+        $course = Course::findOrFail($courseId);
+
+        return response()->json([
+            "success" => true,
+            "message" => "Course updated",
+            "course" => $course
         ]);
     }
 }
