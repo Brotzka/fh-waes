@@ -21,8 +21,8 @@
           <b-dropdown-item to="dashboard">Dashboard</b-dropdown-item>
           <b-dropdown-item href="#" @click="logout">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
+         <b-nav-Item to="courses">Kursübersicht</b-nav-Item>
       </b-navbar-nav>
-
     </b-collapse>
   </b-navbar>
 </div>

@@ -10,7 +10,7 @@ import './assets/scss/app.scss'
 import router from './router'
 import store from './store'
 
-Vue.prototype.$http = backendApi
+Vue.prototype.$http = backendApi()
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)

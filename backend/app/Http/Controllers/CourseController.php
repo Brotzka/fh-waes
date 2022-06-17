@@ -7,11 +7,9 @@ use App\Http\Requests\Course\CourseDeleteRequest;
 use App\Http\Requests\Course\CourseListRequest;
 use App\Http\Requests\Course\CourseUpdateRequest;
 use App\Http\Requests\Course\ShowCourseRequest;
-use App\Http\Requests\StorePostRequest;
 use App\Models\Course;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {

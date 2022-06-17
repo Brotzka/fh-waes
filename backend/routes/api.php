@@ -32,7 +32,7 @@ Route::controller(CourseController::class)
         Route::post('create', 'create');
         Route::get('list', 'list');
         Route::get('show/{courseId}', 'show');
-        Route::delete('delte/{courseId}', 'delete');
+        Route::delete('delete/{courseId}', 'delete');
         Route::patch('update/{courseId}', 'update');
      });
     
