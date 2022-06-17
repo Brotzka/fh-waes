@@ -4,6 +4,7 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/auth/LoginView.vue";
 import RegisterView from "../views/auth/RegisterView.vue";
 import DashboardView from "../views/user/DashboardView";
+import CourseIndexView from "../views/courses/CourseIndexView";
 import store from "@/store";
 
 Vue.use(VueRouter);
@@ -30,6 +31,12 @@ const routes = [
     component: DashboardView,
     meta: { requiresAuth: true },
   },
+  {
+    path:"/courses",
+    name: "courses",
+    component: CourseIndexView,
+    meta: { requiresAuth: true }
+  }
 ];
 
 const router = new VueRouter({
